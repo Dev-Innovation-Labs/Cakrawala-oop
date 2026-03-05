@@ -1,0 +1,1 @@
+export JAVA_HOME=/usr/local/opt/openjdk@21 && export PATH="$JAVA_HOME/bin:$PATH" && cd /Users/wahyuamaldi/develop/Github/Cakrawala-OOP/samples/encapsulation && javac BankAccount.java && java BankAccount
