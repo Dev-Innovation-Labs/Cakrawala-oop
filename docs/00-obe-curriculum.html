@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>RPS — Object Oriented Programming — Universitas Cakrawala</title>
+<style>
+  @page { size: A4 portrait; margin: 1.5cm; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #000;
+    padding: 15px 20px;
+  }
+
+  /* ── Tables ── */
+  table { border-collapse: collapse; width: 100%; }
+  td, th { border: 1px solid #000; padding: 4px 6px; vertical-align: top; font-size: 11pt; }
+
+  /* ── Header table (no outer borders on some cells) ── */
+  table.hdr td { border: 1px solid #000; }
+
+  /* ── Bold helper ── */
+  .b { font-weight: bold; }
+  .cen { text-align: center; }
+  .vcen { vertical-align: middle; }
+  .sm { font-size: 9pt; }
+  .bg-gray { background-color: #d9d9d9; }
+  .bg-yellow { background-color: #fff2cc; }
+  .nowrap { white-space: nowrap; }
+  .italic { font-style: italic; }
+
+  /* ── Sidebar labels ── */
+  td.sidebar {
+    font-weight: bold; font-size: 11pt;
+    text-align: center; vertical-align: middle;
+    width: 11%;
+    background-color: #f2f2f2;
+  }
+
+  /* ── Page break ── */
+  .pb { page-break-before: always; }
+
+  /* ── Lists ── */
+  p { margin: 2px 0; }
+
+  /* ── Weekly table ── */
+  table.weekly td, table.weekly th { font-size: 10pt; }
+  table.weekly th { background-color: #d9d9d9; text-align: center; font-weight: bold; }
+
+  @media print {
+    body { padding: 0; }
+    .pb { page-break-before: always; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- DOCUMENT HEADER TABLE                                      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<table class="hdr">
+  <tr>
+    <td rowspan="2" style="width:8%; text-align:center; vertical-align:middle;">
+      <img src="template_RPS/images/image3.png" alt="Logo Cakrawala" style="width:65px; height:65px;">
+    </td>
+    <td rowspan="2" style="width:52%; text-align:center; vertical-align:middle;">
+      <span class="b" style="font-size:13pt;">FORMULIR</span><br>
+      <span class="b" style="font-size:13pt;">RENCANA PEMBELAJARAN SEMESTER (RPS)</span>
+    </td>
+    <td colspan="2" style="width:40%;">
+      <span class="b">Kode Dokumen : </span>
+    </td>
+  </tr>
+  <tr>
+    <td><span class="b">Tanggal Berlaku :</span></td>
+    <td>07 March 2026</td>
+  </tr>
+</table>
+
+<br>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MASTER TABLE (Identity + All Sections)                     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<table>
+  <!-- ── FAKULTAS ── -->
+  <tr>
+    <td colspan="2" class="b" style="width:14%;">FAKULTAS</td>
+    <td style="width:2%;">:</td>
+    <td colspan="7">ILMU KOMPUTER</td>
+  </tr>
+  <!-- ── PROGRAM STUDI ── -->
+  <tr>
+    <td colspan="2" class="b">PROGRAM STUDI</td>
+    <td>:</td>
+    <td colspan="7">ILMU KOMPUTER</td>
+  </tr>
+
+  <!-- ── MATA KULIAH header ── -->
+  <tr class="bg-gray">
+    <td colspan="4" class="b cen">MATA KULIAH</td>
+    <td class="b cen">KODE</td>
+    <td class="b cen">Rumpun MK</td>
+    <td colspan="2" class="b cen">BOBOT (sks)</td>
+    <td class="b cen">SEMESTER</td>
+    <td class="b cen">Tgl Penyusunan</td>
+  </tr>
+  <!-- ── MATA KULIAH values ── -->
+  <tr>
+    <td colspan="4">Object Oriented Programming</td>
+    <td>OOP01</td>
+    <td>Mata Kuliah Wajib Prodi</td>
+    <td>Teori = 2</td>
+    <td>Praktik = 1</td>
+    <td>2 (dua)</td>
+    <td>07 March 2026</td>
+  </tr>
+
+  <!-- ── OTORITAS ── -->
+  <tr>
+    <td colspan="4" rowspan="2" class="b vcen cen">OTORITAS</td>
+    <td colspan="2" class="b cen">Dosen Pengembang RPS</td>
+    <td colspan="2" class="cen">TPMF</td>
+    <td colspan="2">Ka PRODI: Kaprodi Ilmu Komputer</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="cen" style="height:50px;">
+      Wahyu Amaldi, M.Kom
+    </td>
+    <td colspan="2" class="cen" style="height:50px;">
+      TTG
+    </td>
+    <td colspan="2" class="cen" style="height:50px;">
+      TTG
+    </td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CAPAIAN PEMBELAJARAN                           -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <!-- ── CPL Header ── -->
+  <tr>
+    <td class="sidebar" rowspan="22">Capaian<br>Pembelajaran</td>
+    <td colspan="9" class="b bg-gray">CPL-PRODI yang dibebankan pada MK</td>
+  </tr>
+
+  <!-- Unsur Sikap -->
+  <tr><td colspan="9" class="b">Unsur Sikap</td></tr>
+  <tr>
+    <td colspan="3" class="b">CPL-1</td>
+    <td colspan="6">Menjunjung tinggi etika akademik dan profesional serta bertanggung jawab dalam pengembangan perangkat lunak.</td>
+  </tr>
+
+  <!-- Unsur Pengetahuan -->
+  <tr><td colspan="9" class="b">Unsur Pengetahuan</td></tr>
+  <tr>
+    <td colspan="3" class="b">CPL-2</td>
+    <td colspan="6">Mampu menguasai konsep pemrograman berorientasi objek, prinsip rekayasa perangkat lunak, dan arsitektur aplikasi untuk memecahkan masalah komputasi secara sistematis.</td>
+  </tr>
+
+  <!-- Unsur Keterampilan Umum -->
+  <tr><td colspan="9" class="b">Unsur Keterampilan Umum</td></tr>
+  <tr>
+    <td colspan="3" class="b">CPL-3</td>
+    <td colspan="6">Mampu mengidentifikasi, menganalisis, dan memecahkan masalah komputasi kompleks secara sistematis dan logis.</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPL-4</td>
+    <td colspan="6">Mampu berkomunikasi secara efektif baik lisan maupun tulisan, serta bekerja secara mandiri atau dalam tim.</td>
+  </tr>
+
+  <!-- Unsur Keterampilan Khusus -->
+  <tr><td colspan="9" class="b">Unsur Keterampilan Khusus</td></tr>
+  <tr>
+    <td colspan="3" class="b">CPL-5</td>
+    <td colspan="6">Mampu merancang, mengimplementasikan, dan mengevaluasi solusi perangkat lunak berbasis objek yang efisien dan andal.</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPL-6</td>
+    <td colspan="6">Mampu menerapkan prinsip-prinsip rekayasa perangkat lunak, design patterns, dan arsitektur aplikasi dalam praktik pengembangan profesional.</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPL-7</td>
+    <td colspan="6">Mampu beradaptasi dengan teknologi baru dan mengembangkan diri secara berkelanjutan dalam bidang ilmu komputer.</td>
+  </tr>
+
+  <!-- ── CPMK ── -->
+  <tr><td colspan="9" class="b bg-gray">Capaian Pembelajaran Mata Kuliah (CPMK)</td></tr>
+  <tr>
+    <td colspan="3" class="b">CPMK-1</td>
+    <td colspan="6">Mahasiswa mampu memahami dan menjelaskan konsep dasar serta prinsip-prinsip Object Oriented Programming (OOP). (CPL-2, CPL-3)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPMK-2</td>
+    <td colspan="6">Mahasiswa mampu merancang dan mengimplementasikan kelas, objek, serta hubungan antar objek dengan menerapkan prinsip enkapsulasi, pewarisan, polimorfisme, dan abstraksi. (CPL-3, CPL-5)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPMK-3</td>
+    <td colspan="6">Mahasiswa mampu menerapkan design patterns (Strategy, Observer, Factory, State) untuk menyelesaikan masalah desain perangkat lunak. (CPL-5, CPL-6)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPMK-4</td>
+    <td colspan="6">Mahasiswa mampu merancang arsitektur perangkat lunak bisnis menggunakan Domain Driven Design, Hexagonal Architecture, Workflow Engine, dan Modular Monolith. (CPL-5, CPL-6, CPL-7)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">CPMK-5</td>
+    <td colspan="6">Mahasiswa mampu merancang dan mengimplementasikan proyek aplikasi bisnis modular secara berkelompok. (CPL-4, CPL-5, CPL-6)</td>
+  </tr>
+
+  <!-- ── Sub-CPMK ── -->
+  <tr><td colspan="9" class="b">Kemampuan Akhir Tiap Tahapan Belajar (Sub-CPMK)</td></tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 1</td>
+    <td colspan="6">Mampu menjelaskan paradigma OOP, konsep kelas, objek, atribut, dan method. (CPMK-1, C2)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 2</td>
+    <td colspan="6">Mampu menerapkan prinsip enkapsulasi menggunakan access modifiers serta membuat getter dan setter. (CPMK-2, C3)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 3</td>
+    <td colspan="6">Mampu menerapkan pewarisan (inheritance) menggunakan keyword <code>extends</code> dan <code>super</code>, serta method overriding. (CPMK-2, C3)</td>
+  </tr>
+</table>
+
+<!-- Page 2: Sub-CPMK lanjutan + Korelasi + Deskripsi, dll -->
+<div class="pb"></div>
+<table>
+  <!-- Re-open sidebar for continuation -->
+  <tr>
+    <td class="sidebar" rowspan="17">Capaian<br>Pembelajaran<br>(lanjutan)</td>
+    <td colspan="3" class="b">Sub-CPMK 4</td>
+    <td colspan="6">Mampu menerapkan polimorfisme termasuk method overloading, overriding, dan dynamic method dispatch. (CPMK-2, C3)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 5</td>
+    <td colspan="6">Mampu mengimplementasikan abstraksi menggunakan abstract class dan interface. (CPMK-2, C3)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 6</td>
+    <td colspan="6">Mampu mengintegrasikan 4 pilar OOP dalam satu mini-application. (CPMK-2, C4)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 7</td>
+    <td colspan="6">Mampu menerapkan Design Patterns (Strategy, Observer, Factory, State) untuk masalah bisnis. (CPMK-3, C4)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 8</td>
+    <td colspan="6">Mampu membangun domain model menggunakan Entity, Value Object, Aggregate, Repository. (CPMK-4, C4)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 9</td>
+    <td colspan="6">Mampu merancang aplikasi dengan Hexagonal Architecture (Port &amp; Adapter). (CPMK-4, C4)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 10</td>
+    <td colspan="6">Mampu menerapkan Business Object (Rich Domain Model) dan Application Service. (CPMK-4, C4)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 11</td>
+    <td colspan="6">Mampu membangun Workflow Engine sederhana dengan State Machine, Guard, dan Effect. (CPMK-4, C5)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 12</td>
+    <td colspan="6">Mampu mendesain arsitektur Modular Monolith dengan Event Bus dan Domain Event. (CPMK-4, C5)</td>
+  </tr>
+  <tr>
+    <td colspan="3" class="b">Sub-CPMK 13</td>
+    <td colspan="6">Mampu merancang dan mengimplementasikan proyek aplikasi bisnis modular. (CPMK-5, C6)</td>
+  </tr>
+
+  <!-- ── Korelasi CPMK ↔ Sub-CPMK ── -->
+  <tr>
+    <td colspan="9" class="b">Korelasi CPMK dengan Sub-CPMK pada MK</td>
+  </tr>
+  <tr>
+    <td colspan="9" style="padding:6px;">
+      <table style="width:100%; font-size:10pt;">
+        <tr class="bg-gray">
+          <td class="b cen" style="width:10%;"></td>
+          <td class="b cen">S-CPMK1</td><td class="b cen">S-CPMK2</td><td class="b cen">S-CPMK3</td>
+          <td class="b cen">S-CPMK4</td><td class="b cen">S-CPMK5</td><td class="b cen">S-CPMK6</td>
+          <td class="b cen">S-CPMK7</td><td class="b cen">S-CPMK8</td><td class="b cen">S-CPMK9</td>
+          <td class="b cen">S-CPMK10</td><td class="b cen">S-CPMK11</td><td class="b cen">S-CPMK12</td>
+          <td class="b cen">S-CPMK13</td>
+        </tr>
+        <tr>
+          <td class="b">CPMK-1</td>
+          <td class="cen">&radic;</td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+        </tr>
+        <tr>
+          <td class="b">CPMK-2</td>
+          <td class="cen"></td><td class="cen">&radic;</td><td class="cen">&radic;</td><td class="cen">&radic;</td>
+          <td class="cen">&radic;</td><td class="cen">&radic;</td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+        </tr>
+        <tr>
+          <td class="b">CPMK-3</td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen">&radic;</td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+        </tr>
+        <tr>
+          <td class="b">CPMK-4</td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen">&radic;</td>
+          <td class="cen">&radic;</td><td class="cen">&radic;</td><td class="cen">&radic;</td><td class="cen">&radic;</td><td class="cen"></td>
+        </tr>
+        <tr>
+          <td class="b">CPMK-5</td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td>
+          <td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen"></td><td class="cen">&radic;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- ── Empty spacer rows ── -->
+  <tr><td colspan="9">&nbsp;</td></tr>
+  <tr><td colspan="9">&nbsp;</td></tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DESKRIPSI SINGKAT MK                           -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar">Deskripsi Singkat MK</td>
+    <td colspan="9" style="text-align:justify;">
+      Mata kuliah Object Oriented Programming (OOP) memperkenalkan mahasiswa pada paradigma pemrograman berorientasi objek, sebuah pendekatan fundamental dalam pengembangan perangkat lunak modern. Mata kuliah ini mencakup konsep-konsep inti seperti kelas, objek, enkapsulasi, pewarisan (inheritance), polimorfisme, dan abstraksi. Selanjutnya, mahasiswa dibawa ke penerapan arsitektural melalui Design Patterns, Domain Driven Design, Hexagonal Architecture, Business Object &amp; Process, Workflow Engine, dan Modular Monolith. Mahasiswa akan belajar merancang, mengimplementasikan, dan menguji aplikasi menggunakan prinsip-prinsip OOP. Fokus diberikan pada pengembangan solusi perangkat lunak yang modular, mudah dipelihara, dan dapat diperluas untuk masalah bisnis dunia nyata.
+    </td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BAHAN KAJIAN                                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar"><span class="b">Bahan Kajian:</span><br>Materi Pembelajaran</td>
+    <td colspan="9">
+      <p>Pengantar Object Oriented Programming dan Paradigma Pemrograman</p>
+      <p>Prinsip Enkapsulasi: Access Modifiers, Getter &amp; Setter, Validasi</p>
+      <p>Prinsip Pewarisan (Inheritance): Keyword extends, super, Method Overriding</p>
+      <p>Prinsip Polimorfisme: Dynamic Method Dispatch, Overloading, Overriding</p>
+      <p>Prinsip Abstraksi: Abstract Classes, Interfaces</p>
+      <p>Workshop Integrasi 4 Pilar OOP</p>
+      <p>Design Patterns: Strategy, Observer, Factory, State</p>
+      <p>Domain Driven Design: Entity, Value Object, Aggregate, Repository</p>
+      <p>Hexagonal Architecture: Port &amp; Adapter, Dependency Rule</p>
+      <p>Business Object &amp; Business Process: Rich Domain Model, Application Service</p>
+      <p>Workflow Engine: State Machine, Guard, Effect, Transition</p>
+      <p>Modular Monolith: Module Boundary, Event Bus, Domain Event</p>
+      <p>Perancangan dan Implementasi Proyek Aplikasi Bisnis Modular</p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- Page 3: Pustaka, Media, Prasyarat, Penilaian              -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="pb"></div>
+<table>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PUSTAKA                                        -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar" rowspan="4">Pustaka</td>
+    <td colspan="9" class="b">Utama</td>
+  </tr>
+  <tr>
+    <td colspan="9">
+      <p>Deitel, P. J., &amp; Deitel, H. M. (2018). <i>Java How to Program, Early Objects</i> (11th ed.). Pearson.</p>
+      <p>Liang, Y. D. (2018). <i>Introduction to Java Programming and Data Structures</i> (11th ed.). Pearson.</p>
+      <p>Eckel, B. (2010). <i>Thinking in Java</i> (4th ed.). Prentice Hall.</p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="9" class="b">Pendukung</td>
+  </tr>
+  <tr>
+    <td colspan="9">
+      <p>Gamma, E., Helm, R., Johnson, R., &amp; Vlissides, J. (1994). <i>Design Patterns: Elements of Reusable Object-Oriented Software</i>. Addison-Wesley.</p>
+      <p>Evans, Eric. (2003). <i>Domain-Driven Design: Tackling Complexity in the Heart of Software</i>. Addison-Wesley.</p>
+      <p>Bloch, Joshua. (2018). <i>Effective Java</i> (3rd ed.). Addison-Wesley.</p>
+      <p>Oracle Java Documentation: docs.oracle.com/javase/</p>
+      <p>Refactoring Guru — Design Patterns: refactoring.guru/design-patterns</p>
+    </td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- MEDIA PEMBELAJARAN                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar">Media Pembelajaran</td>
+    <td colspan="9">PPT, Live Coding Demo, Video Learning, GitHub Repository, Mentimeter, Quizzes</td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DOSEN PENGAMPU                                 -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar">Dosen Pengampu</td>
+    <td colspan="9">Wahyu Amaldi, M.Kom</td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- MATA KULIAH PRASYARAT                          -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar">Mata Kuliah Prasyarat</td>
+    <td colspan="9">Dasar Pemrograman (Pemrograman Terstruktur / Algoritma dan Pemrograman)</td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- PENILAIAN (Assessment Grid)                    -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td class="sidebar" rowspan="2">Penilaian<br><span style="font-weight:normal; font-size:9pt;">(Teknik, Instrumen, Bobot)</span></td>
+    <td colspan="9" style="padding:4px;">
+
+      <table style="width:100%; font-size:9pt;">
+        <tr class="bg-gray">
+          <td class="b cen" style="width:10%;"></td>
+          <td class="b cen">Tugas 1</td>
+          <td class="b cen">Latihan 1</td>
+          <td class="b cen">Tugas 2</td>
+          <td class="b cen">Latihan 2</td>
+          <td class="b cen">Tugas 3</td>
+          <td class="b cen">Latihan 3</td>
+          <td class="b cen">Tugas 4</td>
+          <td class="b cen">UTS</td>
+          <td class="b cen">Tugas 5</td>
+          <td class="b cen">Latihan 4</td>
+          <td class="b cen">Tugas 6</td>
+          <td class="b cen">Latihan 5</td>
+          <td class="b cen">Tugas 7</td>
+          <td class="b cen">UAS</td>
+          <td class="b cen">Total</td>
+        </tr>
+        <!-- Bobot per assessment -->
+        <tr>
+          <td class="b cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+        </tr>
+        <!-- Sub-CPMK 1 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 1</td>
+          <td class="cen sm">3%</td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">3%</td>
+        </tr>
+        <!-- Sub-CPMK 2 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 2</td>
+          <td class="cen sm"></td><td class="cen sm">5%</td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">5%</td>
+        </tr>
+        <!-- Sub-CPMK 3 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 3</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm">5%</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">5%</td>
+        </tr>
+        <!-- Sub-CPMK 4 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 4</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm">5%</td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">5%</td>
+        </tr>
+        <!-- Sub-CPMK 5 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 5</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm">5%</td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">5%</td>
+        </tr>
+        <!-- Sub-CPMK 6 -->
+        <tr>
+          <td class="b sm">Sub-CPMK 6</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm">5%</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">5%</td>
+        </tr>
+        <!-- Sub-CPMK 7 (UTS covers 1-6) -->
+        <tr>
+          <td class="b sm">Sub-CPMK 1–7</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm">4%</td><td class="cen sm bg-yellow">20%</td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">24%</td>
+        </tr>
+        <!-- Sub-CPMK 7-12 (post-UTS) -->
+        <tr>
+          <td class="b sm">Sub-CPMK 7</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm">4%</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 8</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm">4%</td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 9</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm">4%</td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 10</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm">4%</td>
+          <td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 11</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm">4%</td><td class="cen sm"></td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 12</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm">4%</td>
+          <td class="cen sm b">4%</td>
+        </tr>
+        <tr>
+          <td class="b sm">Sub-CPMK 13</td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm"></td><td class="cen sm"></td><td class="cen sm"></td>
+          <td class="cen sm">8%</td><td class="cen sm bg-yellow">20%</td>
+          <td class="cen sm b">28%</td>
+        </tr>
+        <!-- Total row -->
+        <tr class="bg-gray">
+          <td class="b cen sm">Total</td>
+          <td class="b cen sm">3%</td><td class="b cen sm">5%</td><td class="b cen sm">5%</td>
+          <td class="b cen sm">5%</td><td class="b cen sm">5%</td><td class="b cen sm">5%</td>
+          <td class="b cen sm">4%</td><td class="b cen sm">20%</td><td class="b cen sm">4%</td>
+          <td class="b cen sm">4%</td><td class="b cen sm">4%</td><td class="b cen sm">4%</td>
+          <td class="b cen sm">12%</td><td class="b cen sm">20%</td>
+          <td class="b cen sm">100%</td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BOBOT PENILAIAN                                -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <tr>
+    <td colspan="9">
+      <p class="b">Bobot Penilaian:</p>
+      <p>Tugas 1 – Tugas 7 = 44%</p>
+      <p>Latihan 1 – Latihan 5 = 22%</p>
+      <p>Proyek Akhir (dalam Tugas 7) = termasuk di atas</p>
+      <p>UTS = 20%</p>
+      <p>UAS = 20%</p>
+    </td>
+  </tr>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- WEEKLY SCHEDULE TABLE                                      -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="pb"></div>
+
+<table class="weekly">
+  <thead>
+    <tr>
+      <th rowspan="2" style="width:4%;">Mg Ke-</th>
+      <th rowspan="2" style="width:13%;">Kemampuan akhir tiap tahapan belajar (Sub-CPMK)</th>
+      <th colspan="2" style="width:22%;">Penilaian</th>
+      <th colspan="2" rowspan="2" style="width:20%;"><span class="b">Bentuk Pembelajaran; Metode Pembelajaran</span><br>[Estimasi Waktu]</th>
+      <th rowspan="2" style="width:16%;">Materi Pembelajaran<br>(bahan kajian)</th>
+      <th rowspan="2" style="width:5%;">Bobot (%)</th>
+      <th rowspan="2" style="width:14%;">Pengalaman belajar mahasiswa</th>
+    </tr>
+    <tr>
+      <th>Indikator</th>
+      <th>Kriteria &amp; Teknik</th>
+    </tr>
+    <tr class="bg-gray">
+      <th>(1)</th><th>(2)</th><th>(3)</th><th>(4)</th>
+      <th>Luring (5)</th><th>Daring (6)</th><th>(7)</th><th>(8)</th><th>(9)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <!-- ── Minggu 1 ── -->
+  <tr>
+    <td class="cen">1</td>
+    <td class="b">Mampu menjelaskan paradigma OOP, konsep kelas, objek, atribut, dan method.</td>
+    <td>
+      Pertemuan 1: Pengantar OOP — paradigma pemrograman, konsep kelas &amp; objek, atribut, method.
+    </td>
+    <td>
+      Kriteria: Kualitatif<br>
+      Bentuk: Diskusi aktif, Kuis singkat
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Diskusi 30'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Pengantar OOP<br>
+      Paradigma Pemrograman<br>
+      Kelas, Objek, Atribut, Method
+    </td>
+    <td class="cen">3</td>
+    <td>
+      Diskusi interaktif<br>
+      Membaca &amp; merangkum materi<br>
+      Kuis singkat
+    </td>
+  </tr>
+
+  <!-- ── Minggu 2 ── -->
+  <tr>
+    <td class="cen">2</td>
+    <td class="b">Mampu menerapkan enkapsulasi menggunakan access modifiers serta getter/setter.</td>
+    <td>
+      Pertemuan 2: Enkapsulasi — access modifiers (public, private, protected), getter &amp; setter dengan validasi.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Tugas mandiri (coding)
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Prinsip Enkapsulasi<br>
+      Access Modifiers<br>
+      Getter &amp; Setter
+    </td>
+    <td class="cen">5</td>
+    <td>
+      Praktikum modifikasi kelas<br>
+      Tugas mandiri coding<br>
+      Studi kasus BankAccount
+    </td>
+  </tr>
+
+  <!-- ── Minggu 3 ── -->
+  <tr>
+    <td class="cen">3</td>
+    <td class="b">Mampu menerapkan pewarisan menggunakan extends dan super, serta method overriding.</td>
+    <td>
+      Pertemuan 3: Inheritance — keyword extends, super, constructor chaining, relasi is-a vs has-a.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Prinsip Pewarisan<br>
+      extends, super<br>
+      Constructor Chaining
+    </td>
+    <td class="cen">5</td>
+    <td>
+      Implementasi hierarki kelas<br>
+      Kuis<br>
+      Diskusi relasi antar kelas
+    </td>
+  </tr>
+
+  <!-- ── Minggu 4 ── -->
+  <tr>
+    <td class="cen">4</td>
+    <td class="b">Mampu menerapkan polimorfisme: overloading, overriding, dynamic dispatch.</td>
+    <td>
+      Pertemuan 4: Polimorfisme — method overloading, overriding, upcasting, dynamic method dispatch.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Tugas mandiri
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Prinsip Polimorfisme<br>
+      Overloading &amp; Overriding<br>
+      Dynamic Method Dispatch
+    </td>
+    <td class="cen">5</td>
+    <td>
+      Praktikum overriding method<br>
+      Tugas mandiri coding<br>
+      Studi kasus Shape
+    </td>
+  </tr>
+
+  <!-- ── Minggu 5 ── -->
+  <tr>
+    <td class="cen">5</td>
+    <td class="b">Mampu mengimplementasikan abstraksi menggunakan abstract class dan interface.</td>
+    <td>
+      Pertemuan 5: Abstraksi — abstract class, interface, kapan menggunakan masing-masing.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Tugas mandiri
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Prinsip Abstraksi<br>
+      Abstract Classes<br>
+      Interfaces
+    </td>
+    <td class="cen">5</td>
+    <td>
+      Implementasi interface/abstract<br>
+      Tugas mandiri coding<br>
+      Studi kasus Vehicle
+    </td>
+  </tr>
+
+  <!-- ── Minggu 6 ── -->
+  <tr>
+    <td class="cen">6</td>
+    <td class="b">Mampu mengintegrasikan 4 pilar OOP dalam satu mini-application.</td>
+    <td>
+      Pertemuan 6: Workshop — integrasi enkapsulasi, pewarisan, polimorfisme, abstraksi dalam satu studi kasus.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Tugas Kelompok
+    </td>
+    <td>
+      Workshop 90'<br>
+      Collaborative Coding<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Integrasi 4 Pilar OOP<br>
+      Project-Based Learning
+    </td>
+    <td class="cen">5</td>
+    <td>
+      Collaborative coding<br>
+      Tugas kelompok mini-app<br>
+      Peer review
+    </td>
+  </tr>
+
+  <!-- ── Minggu 7 ── -->
+  <tr>
+    <td class="cen">7</td>
+    <td class="b">Mampu mempresentasikan dan mempertahankan desain OOP; peer review.</td>
+    <td>
+      Pertemuan 7: Review &amp; Presentasi — presentasi kelompok, peer review.
+    </td>
+    <td>
+      Kriteria: Kualitatif<br>
+      Bentuk: Presentasi, Peer Review
+    </td>
+    <td>
+      Presentasi 60'<br>
+      Diskusi 30'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Review Pilar OOP<br>
+      Presentasi Kelompok
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Presentasi hasil<br>
+      Peer review<br>
+      Diskusi kelas
+    </td>
+  </tr>
+
+  <!-- ── Minggu 8 — UTS ── -->
+  <tr class="bg-yellow">
+    <td class="cen b">8</td>
+    <td class="b">Mampu menyelesaikan soal terintegrasi (Bab 1–4, pilar OOP).</td>
+    <td>
+      <b>UTS</b>: Mencakup seluruh konsep pilar OOP (enkapsulasi, pewarisan, polimorfisme, abstraksi).
+    </td>
+    <td>
+      Kriteria: Kuantitatif<br>
+      Bentuk: <b>Ujian Tertulis dan/atau Praktikum</b>
+    </td>
+    <td colspan="2" class="cen vcen b">
+      Evaluasi<br>UTS 100'
+    </td>
+    <td>
+      Bab 1–4<br>
+      Pilar OOP Terintegrasi
+    </td>
+    <td class="cen b">20</td>
+    <td>
+      Ujian terstruktur<br>
+      Problem solving
+    </td>
+  </tr>
+
+  <!-- ── Minggu 9 ── -->
+  <tr>
+    <td class="cen">9</td>
+    <td class="b">Mampu menerapkan Design Patterns (Strategy, Observer, Factory, State).</td>
+    <td>
+      Pertemuan 9: Design Patterns — Strategy, Observer, Factory, State untuk masalah bisnis.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Design Patterns<br>
+      Strategy, Observer<br>
+      Factory, State
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Implementasi pattern<br>
+      Studi kasus bisnis<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 10 ── -->
+  <tr>
+    <td class="cen">10</td>
+    <td class="b">Mampu membangun domain model: Entity, Value Object, Aggregate, Repository.</td>
+    <td>
+      Pertemuan 10: Domain Driven Design — Entity, Value Object, Aggregate, Repository, invariant.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Domain Modeling 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Domain Driven Design<br>
+      Entity, Value Object<br>
+      Aggregate, Repository
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Domain modeling workshop<br>
+      Praktikum DDD<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 11 ── -->
+  <tr>
+    <td class="cen">11</td>
+    <td class="b">Mampu membuat Port &amp; Adapter; swap adapter tanpa ubah inti bisnis.</td>
+    <td>
+      Pertemuan 11: Hexagonal Architecture — Port (interface), Adapter (driving/driven), Dependency Rule.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Hands-on 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Hexagonal Architecture<br>
+      Port &amp; Adapter<br>
+      Dependency Rule
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Implementasi port/adapter<br>
+      Swap adapter demo<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 12 ── -->
+  <tr>
+    <td class="cen">12</td>
+    <td class="b">Mampu membuat Rich Domain Model &amp; memisahkan domain logic dari Application Service.</td>
+    <td>
+      Pertemuan 12: Business Object &amp; Process — Rich Domain Model, self-validating object, Application Service.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Refactoring 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Business Object &amp; Process<br>
+      Rich Domain Model<br>
+      Application Service
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Refactoring anemic → rich<br>
+      Praktikum BO<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 13 ── -->
+  <tr>
+    <td class="cen">13</td>
+    <td class="b">Mampu membangun Workflow Engine: State Machine, Guard, Effect.</td>
+    <td>
+      Pertemuan 13: Workflow Engine — State Machine, Guard, Effect, Transition deklaratif.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Workflow Engine<br>
+      State Machine<br>
+      Guard, Effect, Transition
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Implementasi state machine<br>
+      Problem-based learning<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 14 ── -->
+  <tr>
+    <td class="cen">14</td>
+    <td class="b">Mampu mendesain Modular Monolith: modul terpisah, Event Bus, Domain Event.</td>
+    <td>
+      Pertemuan 14: Modular Monolith — Module boundary, Event Bus, Domain Event, inter-module communication.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Latihan praktikum, Kuis
+    </td>
+    <td>
+      Tutorial 60'<br>
+      Praktikum 40'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Modular Monolith<br>
+      Module Boundary<br>
+      Event Bus, Domain Event
+    </td>
+    <td class="cen">4</td>
+    <td>
+      Implementasi event bus<br>
+      Architecture discussion<br>
+      Kuis
+    </td>
+  </tr>
+
+  <!-- ── Minggu 15 ── -->
+  <tr>
+    <td class="cen">15</td>
+    <td class="b">Mampu mengintegrasikan semua konsep dalam proyek mini-ERP modular berkelompok.</td>
+    <td>
+      Pertemuan 15: Proyek Akhir — integrasi DDD, Hexagonal, Design Pattern, Workflow, Modular Monolith.
+    </td>
+    <td>
+      Kriteria: Kuantitatif &amp; Kualitatif<br>
+      Bentuk: Tugas Kelompok (Proyek Akhir), Presentasi
+    </td>
+    <td>
+      Project-Based 90'<br>
+      Bimbingan 30'<br>
+      PT (3 x 60')
+    </td>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      Proyek Mini-ERP Modular<br>
+      Integrasi Bab 5–10
+    </td>
+    <td class="cen">8</td>
+    <td>
+      Collaborative coding<br>
+      Presentasi proyek<br>
+      Bimbingan dosen
+    </td>
+  </tr>
+
+  <!-- ── Minggu 16 — UAS ── -->
+  <tr class="bg-yellow">
+    <td class="cen b">16</td>
+    <td class="b">Mampu menyelesaikan soal seluruh materi (Bab 1–10) + presentasi proyek akhir.</td>
+    <td>
+      <b>UAS</b>: Mencakup seluruh materi Bab 1–10, presentasi &amp; demo proyek akhir.
+    </td>
+    <td>
+      Kriteria: Kuantitatif<br>
+      Bentuk: <b>Ujian Tertulis/Praktikum + Presentasi Proyek</b>
+    </td>
+    <td colspan="2" class="cen vcen b">
+      Evaluasi<br>UAS 100' + Presentasi 60'
+    </td>
+    <td>
+      Bab 1–10<br>
+      Seluruh Materi Terintegrasi
+    </td>
+    <td class="cen b">20</td>
+    <td>
+      Ujian terstruktur<br>
+      Presentasi &amp; demo proyek<br>
+      Problem solving
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+</body>
+</html>

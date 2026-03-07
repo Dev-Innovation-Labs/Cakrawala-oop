@@ -76,7 +76,7 @@ Java menyediakan **4 level akses**, dari paling terbuka hingga paling tertutup:
 └──────────────┴──────────┴───────────┴──────────┴────────────┘
 ```
 
-Mari kita bahas satu per satu:
+Berikut penjelasan tiap modifier:
 
 ---
 

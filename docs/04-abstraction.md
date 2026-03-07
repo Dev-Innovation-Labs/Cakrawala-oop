@@ -574,7 +574,7 @@ class MobilListrik extends Kendaraan
 
 | Sebelumnya | Berikutnya |
 |:-----------|:-----------|
-| [📖 ← Polymorphism](03-polymorphism.md) | [🏠 Beranda](../README.md) |
+| [📖 ← Polymorphism](03-polymorphism.md) | [📖 Design Patterns →](05-design-patterns.md) |
 
 ---
 

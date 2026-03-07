@@ -354,7 +354,7 @@ Berapa pilar OOP yang diterapkan dalam kode di atas?
 
 | Sebelumnya | Berikutnya |
 |:-----------|:-----------|
-| [📝 ← Quiz Polymorphism](03-quiz-polymorphism.md) | [🏠 Beranda](../README.md) |
+| [📝 ← Quiz Polymorphism](03-quiz-polymorphism.md) | [📝 Quiz Design Patterns →](05-quiz-design-patterns.md) |
 
 ---
 
