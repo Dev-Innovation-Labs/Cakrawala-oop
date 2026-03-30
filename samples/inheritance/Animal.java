@@ -133,7 +133,7 @@ class Anjing extends Hewan {
 // ═══════════════════════════════════════════
 // MULTILEVEL: KucingPersia (extends Kucing extends Hewan)
 // ═══════════════════════════════════════════
-class KucingPersia extends Kucing {
+class KucingPersia extends Kucing{
 
     private boolean hidungPesek;
 
