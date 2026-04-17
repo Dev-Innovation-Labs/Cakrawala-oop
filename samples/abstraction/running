@@ -1,0 +1,1 @@
+export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home" && export PATH="$JAVA_HOME/bin:$PATH" && javac --version && cd /Users/wahyuamaldi/develop/Github/Cakrawala-OOP/samples/abstraction && javac Vehicle.java && java Vehicle

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>UTS — Pemrograman Berorientasi Objek</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    margin: 0;
+    padding: 18mm 15mm;
+    max-width: 210mm;
+  }
+
+  /* --- Kop --- */
+  .kop { text-align: center; padding-bottom: 10px; border-bottom: 3px double #000; margin-bottom: 14px; }
+  .kop h1 { font-size: 15pt; font-weight: bold; letter-spacing: 1.5px; margin: 0 0 2px 0; }
+  .kop h2 { font-size: 12pt; font-weight: bold; margin: 0 0 4px 0; }
+  .kop p  { font-size: 10pt; margin: 0; }
+
+  /* --- Meta --- */
+  .meta { margin-bottom: 14px; font-size: 10.5pt; }
+  .meta table { border: none; border-collapse: collapse; }
+  .meta td { border: none; padding: 1px 6px; vertical-align: top; }
+  .meta td:first-child { font-weight: bold; width: 120px; }
+
+  /* --- Headings --- */
+  h3 { font-size: 12.5pt; font-weight: bold; margin: 16px 0 5px 0; padding-bottom: 2px; border-bottom: 1px solid #000; }
+  h4 { font-size: 11pt; font-weight: bold; margin: 10px 0 4px 0; }
+
+  /* --- Text --- */
+  p { margin: 4px 0; }
+  ol, ul { padding-left: 20px; margin: 4px 0 8px 0; }
+  li { margin-bottom: 2px; }
+
+  /* --- Tables --- */
+  table { width: 100%; border-collapse: collapse; margin: 6px 0 10px 0; font-size: 9pt; }
+  th, td { border: 1px solid #000; padding: 3px 5px; vertical-align: middle; }
+  th { font-weight: bold; text-align: center; }
+
+  /* --- Code --- */
+  pre {
+    border: 1px solid #888;
+    padding: 6px 8px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9pt;
+    line-height: 1.35;
+    margin: 5px 0 8px 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    page-break-inside: avoid;
+  }
+  code { font-family: "Courier New", Courier, monospace; font-size: 9pt; }
+
+  /* --- Screenshot / Jawaban markers --- */
+  .sc { margin: 5px 0; padding: 3px 8px; border-left: 3px solid #000; font-style: italic; font-size: 10pt; }
+  .jw { margin: 5px 0; padding: 3px 8px; border-left: 3px solid #555; font-size: 10pt; }
+
+  /* --- Helpers --- */
+  hr { border: none; border-top: 1px solid #000; margin: 12px 0; }
+  .pb { page-break-before: always; }
+  .no-break { page-break-inside: avoid; }
+  .footer { margin-top: 20px; text-align: right; font-style: italic; font-size: 10pt; }
+  .ck { list-style: none; padding-left: 4px; }
+  .ck li::before { content: "☐  "; }
+  .ck li { margin-bottom: 3px; }
+
+  /* --- Print --- */
+  @media print {
+    body { padding: 0; margin: 0; }
+    .pb { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== KOP ===== -->
+<div class="kop">
+  <h1>UJIAN TENGAH SEMESTER (UTS)</h1>
+  <h2>Pemrograman Berorientasi Objek</h2>
+  <p>Universitas Cakrawala &mdash; Program Studi Informatika</p>
+</div>
+
+<div class="meta">
+<table>
+  <tr><td>Dosen</td><td>: Wahyu Amaldi, M.Kom</td></tr>
+  <tr><td>Cakupan</td><td>: Bab 1 &ndash; 5 (Encapsulation, Inheritance, Polymorphism, Abstraction, Design Patterns)</td></tr>
+  <tr><td>Waktu</td><td>: 150 menit</td></tr>
+  <tr><td>Sifat Ujian</td><td>: Wajib Screen Capture</td></tr>
+  <tr><td>Bobot</td><td>: 30 % dari Nilai Akhir</td></tr>
+  <tr><td>Pengumpulan</td><td>: 1 file PDF &mdash; nama: <code>UTS_OOP_[NIM]_[NAMA].pdf</code></td></tr>
+</table>
+</div>
+
+<hr>
+
+<!-- ===== ATURAN ===== -->
+<h3>ATURAN UJIAN</h3>
+<ol>
+  <li>Semua jawaban berupa <strong>screenshot</strong> kode di editor <strong>dan</strong> output di terminal.</li>
+  <li>Screenshot harus <strong>full window</strong> (terlihat taskbar / jam komputer). Yang di-crop dikurangi nilainya.</li>
+  <li><strong>NIM harus muncul di output program</strong>, bukan hanya di komentar.</li>
+  <li>Setiap mahasiswa punya studi kasus berbeda berdasarkan <strong>2 digit terakhir NIM</strong>.</li>
+  <li>Jawaban yang tidak sesuai NIM = nilai 0.</li>
+  <li>Jawaban identik antar mahasiswa = nilai 0 untuk kedua pihak.</li>
+</ol>
+
+<!-- ===== TABEL NIM ===== -->
+<div class="pb"></div>
+
+<h3>TABEL STUDI KASUS BERDASARKAN NIM</h3>
+<p>Cari <strong>2 digit terakhir NIM</strong> Anda. Semua soal menggunakan data dari dua tabel berikut.</p>
+
+<h4>Tabel A &mdash; Nama Toko, Barang, dan Jenis</h4>
+<table>
+  <thead>
+    <tr><th style="width:70px">Akhiran NIM</th><th>Toko</th><th>Barang (Class Utama)</th><th>Jenis A</th><th>Jenis B</th><th>Jenis C</th></tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:center">00 &ndash; 04</td><td>Toko Roti</td><td>Roti</td><td>RotiTawar</td><td>RotiCoklat</td><td>RotiKeju</td></tr>
+    <tr><td style="text-align:center">05 &ndash; 09</td><td>Toko Kue</td><td>Kue</td><td>KueBolu</td><td>KueNastar</td><td>KueLapis</td></tr>
+    <tr><td style="text-align:center">10 &ndash; 14</td><td>Warung Kopi</td><td>Minuman</td><td>Espresso</td><td>Latte</td><td>Cappuccino</td></tr>
+    <tr><td style="text-align:center">15 &ndash; 19</td><td>Kedai Jus</td><td>Jus</td><td>JusJeruk</td><td>JusMangga</td><td>JusAlpukat</td></tr>
+    <tr><td style="text-align:center">20 &ndash; 24</td><td>Toko Buku</td><td>Buku</td><td>Novel</td><td>Komik</td><td>TextBook</td></tr>
+    <tr><td style="text-align:center">25 &ndash; 29</td><td>Toko Alat Tulis</td><td>AlatTulis</td><td>Pensil</td><td>Pulpen</td><td>Spidol</td></tr>
+    <tr><td style="text-align:center">30 &ndash; 34</td><td>Apotek</td><td>Obat</td><td>ObatBebas</td><td>ObatKeras</td><td>ObatHerbal</td></tr>
+    <tr><td style="text-align:center">35 &ndash; 39</td><td>Toko Vitamin</td><td>Vitamin</td><td>VitaminC</td><td>VitaminD</td><td>VitaminE</td></tr>
+    <tr><td style="text-align:center">40 &ndash; 44</td><td>Toko HP</td><td>HP</td><td>HPMurah</td><td>HPMenengah</td><td>HPFlagship</td></tr>
+    <tr><td style="text-align:center">45 &ndash; 49</td><td>Toko Laptop</td><td>Laptop</td><td>LaptopOffice</td><td>LaptopGaming</td><td>LaptopDesain</td></tr>
+    <tr><td style="text-align:center">50 &ndash; 54</td><td>Rental Sepeda</td><td>Sepeda</td><td>SepedaBiasa</td><td>SepedaListrik</td><td>SepedaGunung</td></tr>
+    <tr><td style="text-align:center">55 &ndash; 59</td><td>Rental Motor</td><td>Motor</td><td>MotorMatic</td><td>MotorSport</td><td>MotorBebek</td></tr>
+    <tr><td style="text-align:center">60 &ndash; 64</td><td>Laundry</td><td>Cucian</td><td>CuciKiloan</td><td>CuciSatuan</td><td>CuciExpress</td></tr>
+    <tr><td style="text-align:center">65 &ndash; 69</td><td>Jasa Setrika</td><td>Setrikaan</td><td>SetrikaKiloan</td><td>SetrikaSatuan</td><td>SetrikaExpress</td></tr>
+    <tr><td style="text-align:center">70 &ndash; 74</td><td>Kantin</td><td>Makanan</td><td>NasiGoreng</td><td>MieAyam</td><td>Bakso</td></tr>
+    <tr><td style="text-align:center">75 &ndash; 79</td><td>Warung Makan</td><td>Menu</td><td>AyamGeprek</td><td>AyamBakar</td><td>AyamKrispy</td></tr>
+    <tr><td style="text-align:center">80 &ndash; 84</td><td>Studio Foto</td><td>PaketFoto</td><td>FotoBasic</td><td>FotoPremium</td><td>FotoExclusive</td></tr>
+    <tr><td style="text-align:center">85 &ndash; 89</td><td>Percetakan</td><td>Cetakan</td><td>CetakBrosur</td><td>CetakBanner</td><td>CetakUndangan</td></tr>
+    <tr><td style="text-align:center">90 &ndash; 94</td><td>Pet Shop</td><td>Hewan</td><td>Kucing</td><td>Anjing</td><td>Hamster</td></tr>
+    <tr><td style="text-align:center">95 &ndash; 99</td><td>Toko Ikan</td><td>Ikan</td><td>IkanCupang</td><td>IkanKoi</td><td>IkanNemo</td></tr>
+  </tbody>
+</table>
+
+<h4>Tabel B &mdash; Angka (Harga, Stok, Diskon)</h4>
+<table>
+  <thead>
+    <tr><th style="width:70px">Akhiran NIM</th><th>Harga</th><th>Stok Awal</th><th>Diskon Member</th><th>Diskon Promo</th></tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:center">00 &ndash; 04</td><td style="text-align:right">12.000</td><td style="text-align:center">40</td><td style="text-align:center">5 %</td><td style="text-align:center">20 %</td></tr>
+    <tr><td style="text-align:center">05 &ndash; 09</td><td style="text-align:right">18.000</td><td style="text-align:center">55</td><td style="text-align:center">6 %</td><td style="text-align:center">22 %</td></tr>
+    <tr><td style="text-align:center">10 &ndash; 14</td><td style="text-align:right">22.000</td><td style="text-align:center">30</td><td style="text-align:center">8 %</td><td style="text-align:center">25 %</td></tr>
+    <tr><td style="text-align:center">15 &ndash; 19</td><td style="text-align:right">15.000</td><td style="text-align:center">45</td><td style="text-align:center">7 %</td><td style="text-align:center">18 %</td></tr>
+    <tr><td style="text-align:center">20 &ndash; 24</td><td style="text-align:right">65.000</td><td style="text-align:center">90</td><td style="text-align:center">10 %</td><td style="text-align:center">15 %</td></tr>
+    <tr><td style="text-align:center">25 &ndash; 29</td><td style="text-align:right">8.500</td><td style="text-align:center">120</td><td style="text-align:center">4 %</td><td style="text-align:center">12 %</td></tr>
+    <tr><td style="text-align:center">30 &ndash; 34</td><td style="text-align:right">32.000</td><td style="text-align:center">150</td><td style="text-align:center">7 %</td><td style="text-align:center">30 %</td></tr>
+    <tr><td style="text-align:center">35 &ndash; 39</td><td style="text-align:right">45.000</td><td style="text-align:center">70</td><td style="text-align:center">9 %</td><td style="text-align:center">20 %</td></tr>
+    <tr><td style="text-align:center">40 &ndash; 44</td><td style="text-align:right">2.200.000</td><td style="text-align:center">15</td><td style="text-align:center">12 %</td><td style="text-align:center">10 %</td></tr>
+    <tr><td style="text-align:center">45 &ndash; 49</td><td style="text-align:right">8.500.000</td><td style="text-align:center">10</td><td style="text-align:center">8 %</td><td style="text-align:center">5 %</td></tr>
+    <tr><td style="text-align:center">50 &ndash; 54</td><td style="text-align:right">45.000</td><td style="text-align:center">12</td><td style="text-align:center">6 %</td><td style="text-align:center">35 %</td></tr>
+    <tr><td style="text-align:center">55 &ndash; 59</td><td style="text-align:right">75.000</td><td style="text-align:center">20</td><td style="text-align:center">5 %</td><td style="text-align:center">15 %</td></tr>
+    <tr><td style="text-align:center">60 &ndash; 64</td><td style="text-align:right">7.000</td><td style="text-align:center">0</td><td style="text-align:center">5 %</td><td style="text-align:center">20 %</td></tr>
+    <tr><td style="text-align:center">65 &ndash; 69</td><td style="text-align:right">5.000</td><td style="text-align:center">0</td><td style="text-align:center">4 %</td><td style="text-align:center">15 %</td></tr>
+    <tr><td style="text-align:center">70 &ndash; 74</td><td style="text-align:right">15.000</td><td style="text-align:center">60</td><td style="text-align:center">9 %</td><td style="text-align:center">25 %</td></tr>
+    <tr><td style="text-align:center">75 &ndash; 79</td><td style="text-align:right">20.000</td><td style="text-align:center">50</td><td style="text-align:center">8 %</td><td style="text-align:center">20 %</td></tr>
+    <tr><td style="text-align:center">80 &ndash; 84</td><td style="text-align:right">125.000</td><td style="text-align:center">8</td><td style="text-align:center">15 %</td><td style="text-align:center">40 %</td></tr>
+    <tr><td style="text-align:center">85 &ndash; 89</td><td style="text-align:right">35.000</td><td style="text-align:center">100</td><td style="text-align:center">10 %</td><td style="text-align:center">25 %</td></tr>
+    <tr><td style="text-align:center">90 &ndash; 94</td><td style="text-align:right">150.000</td><td style="text-align:center">20</td><td style="text-align:center">11 %</td><td style="text-align:center">30 %</td></tr>
+    <tr><td style="text-align:center">95 &ndash; 99</td><td style="text-align:right">85.000</td><td style="text-align:center">35</td><td style="text-align:center">7 %</td><td style="text-align:center">18 %</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Contoh cara baca:</strong> NIM <code>1234567823</code> &rarr; 2 digit terakhir = 23 &rarr; baris <strong>20 &ndash; 24</strong> &rarr; Toko Buku, class Buku, jenis: Novel / Komik / TextBook, harga 65.000, stok 90, diskon member 10 %, diskon promo 15 %.</p>
+
+<!-- ===== SOAL 1 ===== -->
+<div class="pb"></div>
+
+<h3>SOAL 1 &mdash; Instalasi Java dan Encapsulation (20 poin)</h3>
+
+<p>Soal ini meminta Anda membuktikan Java sudah terinstall, lalu membuat class pertama dengan data terlindungi (private).</p>
+
+<h4>1a. Cek Java (5 poin)</h4>
+<p>Buka terminal lalu ketik:</p>
+<pre>java -version
+javac -version</pre>
+<div class="sc">Screenshot: terminal yang menampilkan versi Java.</div>
+
+<h4>1b. Buat Class Utama (15 poin)</h4>
+<p>Buat file Java dengan nama sesuai kolom <strong>Barang</strong> dari Tabel A (contoh: <code>Buku.java</code>). Class ini harus punya:</p>
+<ul>
+  <li>4 field <code>private</code>: <code>nama</code> (String), <code>harga</code> (double), <code>stok</code> (int), <code>nim</code> (String)</li>
+  <li>Constructor untuk mengisi semua field</li>
+  <li>Getter untuk semua field</li>
+  <li>Setter <code>setHarga()</code> dan <code>setStok()</code> dengan validasi:
+    <ul>
+      <li>Jika harga &le; 0 &rarr; cetak <code>[NIM] ERROR: Harga tidak valid!</code> dan jangan ubah nilai</li>
+      <li>Jika stok &lt; 0 &rarr; cetak <code>[NIM] ERROR: Stok tidak valid!</code> dan jangan ubah nilai</li>
+    </ul>
+  </li>
+  <li>Method <code>info()</code> &mdash; mencetak semua data barang</li>
+  <li>Method <code>jual(int jumlah)</code>:
+    <ul>
+      <li>Stok cukup &rarr; kurangi stok, cetak <code>[NIM] Terjual [jumlah] [Barang]. Sisa: [stok]</code></li>
+      <li>Stok tidak cukup &rarr; cetak <code>[NIM] GAGAL: Stok tidak cukup!</code></li>
+    </ul>
+  </li>
+</ul>
+<p>Isi <strong>harga</strong> dan <strong>stok</strong> sesuai Tabel B. Isi <strong>nim</strong> dengan NIM Anda.</p>
+<p>Buat juga <code>main()</code> yang menjalankan: <code>info()</code>, <code>jual()</code> sukses, <code>jual()</code> gagal, <code>setHarga(-1)</code>, <code>setStok(-1)</code>.</p>
+
+<div class="sc">Screenshot 1: Kode lengkap di editor.</div>
+<div class="sc">Screenshot 2: Output di terminal (NIM harus terlihat di setiap baris output).</div>
+
+<!-- ===== SOAL 2 ===== -->
+<div class="pb"></div>
+
+<h3>SOAL 2 &mdash; Inheritance (20 poin)</h3>
+
+<p>Buat 3 subclass dari class Soal 1. Tujuannya: subclass mewarisi sifat superclass dan bisa menambah / mengubah perilaku.</p>
+
+<p>Buat 3 class baru sesuai kolom <strong>Jenis A, B, C</strong> dari Tabel A. Ketiga class meng-extend class Soal 1.</p>
+
+<div class="no-break">
+<p>Contoh untuk NIM akhiran 23 (Toko Buku):</p>
+<pre>Buku            &lt;-- superclass (dari Soal 1)
+├── Novel       &lt;-- subclass A
+├── Komik       &lt;-- subclass B
+└── TextBook    &lt;-- subclass C</pre>
+</div>
+
+<p>Setiap subclass harus:</p>
+<ol>
+  <li>Pakai <code>extends</code> ke class Soal 1.</li>
+  <li>Punya constructor yang memanggil <code>super(...)</code>.</li>
+  <li>Punya 1 field tambahan:
+    Jenis A &rarr; <code>String kategori</code> &nbsp;|&nbsp;
+    Jenis B &rarr; <code>double berat</code> &nbsp;|&nbsp;
+    Jenis C &rarr; <code>boolean premium</code>
+  </li>
+  <li>Override <code>info()</code> &rarr; panggil <code>super.info()</code> lalu cetak field tambahan.</li>
+  <li>Override <code>jual(int jumlah)</code> dengan cetakan tambahan:
+    <ul>
+      <li>Jenis A &rarr; <code>[NIM] [JenisA]: proses standar</code></li>
+      <li>Jenis B &rarr; <code>[NIM] [JenisB]: perlu penanganan khusus</code></li>
+      <li>Jenis C &rarr; jika premium true: <code>[NIM] [JenisC]: PREMIUM, diskon 10%</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>Tambahkan di <strong>setiap constructor</strong> (superclass dan subclass):</p>
+<pre>System.out.println("[NIM] Constructor [NamaClass] dipanggil");</pre>
+
+<p>Buat <code>main()</code> yang membuat ketiga objek, panggil <code>info()</code> dan <code>jual(1)</code> masing-masing.</p>
+
+<div class="sc">Screenshot 1: Kode semua class di editor.</div>
+<div class="sc">Screenshot 2: Output di terminal (urutan constructor + info + jual).</div>
+<div class="jw"><strong>Pertanyaan tertulis</strong> (tulis di bawah screenshot): Kenapa saat membuat objek subclass, constructor superclass jalan duluan?</div>
+
+<!-- ===== SOAL 3 ===== -->
+<div class="pb"></div>
+
+<h3>SOAL 3 &mdash; Polymorphism (20 poin)</h3>
+
+<p>Tunjukkan 2 jenis polymorphism: <strong>overriding</strong> (method sama, perilaku beda) dan <strong>overloading</strong> (nama sama, parameter beda).</p>
+
+<h4>3a. Overriding + Dynamic Dispatch (10 poin)</h4>
+<p>Buat array bertipe superclass yang diisi ketiga subclass:</p>
+<pre>Barang[] daftar = {
+    new JenisA(...),
+    new JenisB(...),
+    new JenisC(...)
+};</pre>
+<p>(Ganti nama sesuai tabel NIM Anda.)</p>
+<p>Loop array, untuk setiap elemen cetak:</p>
+<pre>System.out.println("[NIM] Tipe: " + item.getClass().getSimpleName());
+item.info();
+item.jual(2);
+System.out.println("---");</pre>
+<p>Ini membuktikan: tipe variabel sama (superclass), tapi method yang jalan milik masing-masing subclass.</p>
+
+<h4>3b. Overloading (10 poin)</h4>
+<p>Tambahkan 3 method <code>hitungTotal</code> di superclass (nama sama, parameter beda):</p>
+<pre>double hitungTotal(int jumlah) {
+    // harga * jumlah
+}
+
+double hitungTotal(int jumlah, double diskonPersen) {
+    // harga * jumlah * (1 - diskonPersen/100)
+}
+
+double hitungTotal(int jumlah, String kodeVoucher) {
+    // kalau kodeVoucher == NIM Anda --> diskon 50%
+    // kalau beda --> tidak ada diskon
+}</pre>
+<p>Di <code>main()</code>, panggil ketiga versi dan cetak hasilnya. Gunakan angka <strong>Diskon Member</strong> dari Tabel B untuk parameter diskonPersen.</p>
+
+<div class="sc">Screenshot 1: Kode di editor.</div>
+<div class="sc">Screenshot 2: Output di terminal.</div>
+<div class="jw"><strong>Pertanyaan tertulis</strong>: Apa beda overriding dan overloading? Tunjukkan dari kode Anda masing-masing 1 contoh.</div>
+
+<!-- ===== SOAL 4 ===== -->
+<div class="pb"></div>
+
+<h3>SOAL 4 &mdash; Abstraction (20 poin)</h3>
+
+<p>Ubah superclass menjadi abstract class dan buat interface. Tujuannya: memaksa subclass mengisi method tertentu.</p>
+
+<h4>4a. Abstract Class (10 poin)</h4>
+<p>Ubah class Soal 1 menjadi <code>abstract class</code>, tambahkan 2 method abstract:</p>
+<pre>abstract String getDeskripsi();
+abstract double hitungPajak();</pre>
+<p>Setiap subclass wajib mengisi:</p>
+<ul>
+  <li><code>getDeskripsi()</code> &rarr; return deskripsi yang beda per subclass.</li>
+  <li><code>hitungPajak()</code>:
+    Jenis A &rarr; harga &times; 11/100 (PPN) &nbsp;|&nbsp;
+    Jenis B &rarr; harga &times; 5/100 &nbsp;|&nbsp;
+    Jenis C &rarr; 0 (bebas pajak)
+  </li>
+</ul>
+
+<h4>4b. Interface (10 poin)</h4>
+<p>Buat interface <code>Diskonable</code>:</p>
+<pre>interface Diskonable {
+    double hitungDiskon();
+    String infoDiskon();
+}</pre>
+<p>Aturan:</p>
+<ul>
+  <li><strong>Jenis B</strong> implements Diskonable &rarr; <code>hitungDiskon()</code> return harga &times; diskonMember / 100, <code>infoDiskon()</code> return "Member [X]% - NIM: [NIM]"</li>
+  <li><strong>Jenis C</strong> implements Diskonable &rarr; <code>hitungDiskon()</code> return harga &times; diskonPromo / 100, <code>infoDiskon()</code> return "Promo [X]% - NIM: [NIM]"</li>
+</ul>
+<p>(Gunakan angka dari Tabel B.)</p>
+<p>Buat <code>main()</code> yang membuat ketiga objek, panggil <code>info()</code>, <code>getDeskripsi()</code>, <code>hitungPajak()</code>; untuk Jenis B dan C panggil juga <code>hitungDiskon()</code> dan <code>infoDiskon()</code>.</p>
+
+<div class="sc">Screenshot 1: Kode di editor.</div>
+<div class="sc">Screenshot 2: Output di terminal.</div>
+<div class="jw"><strong>Pertanyaan tertulis</strong>: Apa beda abstract class dan interface? Kapan pakai yang mana?</div>
+
+<!-- ===== SOAL 5 ===== -->
+<div class="pb"></div>
+
+<h3>SOAL 5 &mdash; Strategy Pattern (20 poin)</h3>
+
+<p>Buat sistem kasir yang bisa ganti-ganti cara hitung diskon tanpa ubah kode kasir (Strategy Pattern).</p>
+
+<p>Buat interface:</p>
+<pre>interface StrategiDiskon {
+    double hitungHargaAkhir(double harga, int jumlah);
+    String namaStrategi();
+}</pre>
+
+<p>Buat 3 class yang implements interface di atas:</p>
+<ol>
+  <li><strong>TanpaDiskon</strong> &mdash; harga akhir = harga &times; jumlah (tanpa potongan).</li>
+  <li><strong>DiskonMember</strong> &mdash; harga akhir = harga &times; jumlah &times; (1 &minus; diskonMember/100). Pakai angka dari Tabel B.</li>
+  <li><strong>DiskonPromo</strong> &mdash; harga akhir = harga &times; jumlah &times; (1 &minus; diskonPromo/100). Pakai angka dari Tabel B.</li>
+</ol>
+
+<div class="no-break">
+<p>Buat class <code>Kasir</code>:</p>
+<pre>class Kasir {
+    private StrategiDiskon strategi;
+
+    void setStrategi(StrategiDiskon s) {
+        this.strategi = s;
+    }
+
+    void bayar(String namaBarang, double harga,
+               int jumlah, String nim) {
+        double total = strategi.hitungHargaAkhir(harga, jumlah);
+        double diskon = (harga * jumlah) - total;
+        System.out.println("=== STRUK " + nim + " ===");
+        System.out.println("Strategi : " + strategi.namaStrategi());
+        System.out.println("Barang   : " + namaBarang);
+        System.out.println("Harga    : " + (int)harga);
+        System.out.println("Jumlah   : " + jumlah);
+        System.out.println("Diskon   : " + (int)diskon);
+        System.out.println("Total    : " + (int)total);
+        System.out.println("==================");
+    }
+}</pre>
+</div>
+
+<p>Di <code>main()</code>, buat 1 objek Kasir, jalankan 3 transaksi dengan strategi berbeda:</p>
+<ul>
+  <li>Transaksi 1 &mdash; TanpaDiskon, beli 3 Jenis A</li>
+  <li>Transaksi 2 &mdash; DiskonMember, beli 2 Jenis B</li>
+  <li>Transaksi 3 &mdash; DiskonPromo, beli 5 Jenis C</li>
+</ul>
+<p>Gunakan nama barang dan harga dari tabel NIM Anda.</p>
+
+<div class="sc">Screenshot 1: Kode di editor (interface + 3 strategi + kasir + main).</div>
+<div class="sc">Screenshot 2: Output 3 struk di terminal.</div>
+<div class="jw"><strong>Pertanyaan tertulis</strong>: Kenapa Strategy Pattern berguna? Apa yang terjadi kalau semua jenis diskon di-hardcode di dalam class Kasir tanpa pakai interface?</div>
+
+<!-- ===== PENILAIAN ===== -->
+<div class="pb"></div>
+
+<h3>PENILAIAN</h3>
+
+<table>
+  <thead>
+    <tr><th style="width:50px">Soal</th><th style="width:50px">Poin</th><th style="text-align:left">Yang Dinilai</th></tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:center">1</td><td style="text-align:center">20</td><td style="text-align:left">Java jalan + class private field + validasi</td></tr>
+    <tr><td style="text-align:center">2</td><td style="text-align:center">20</td><td style="text-align:left">3 subclass + extends + super() + override + constructor chain</td></tr>
+    <tr><td style="text-align:center">3</td><td style="text-align:center">20</td><td style="text-align:left">Dynamic dispatch + overloading 3 versi</td></tr>
+    <tr><td style="text-align:center">4</td><td style="text-align:center">20</td><td style="text-align:left">Abstract class + interface + implement</td></tr>
+    <tr><td style="text-align:center">5</td><td style="text-align:center">20</td><td style="text-align:left">Interface + 3 strategi + kasir + ganti strategi runtime</td></tr>
+    <tr><td style="text-align:center"><strong>Total</strong></td><td style="text-align:center"><strong>100</strong></td><td></td></tr>
+  </tbody>
+</table>
+
+<h4>Pengurangan Nilai</h4>
+<table>
+  <thead>
+    <tr><th style="text-align:left">Pelanggaran</th><th style="width:150px">Pengurangan</th></tr>
+  </thead>
+  <tbody>
+    <tr><td style="text-align:left">NIM tidak muncul di output</td><td style="text-align:center">&minus;50 % per soal</td></tr>
+    <tr><td style="text-align:left">Screenshot di-crop (tidak full window)</td><td style="text-align:center">&minus;50 % per screenshot</td></tr>
+    <tr><td style="text-align:left">Data tidak sesuai tabel NIM</td><td style="text-align:center">&minus;100 % per soal</td></tr>
+    <tr><td style="text-align:left">Jawaban identik antar mahasiswa</td><td style="text-align:center">0 untuk kedua pihak</td></tr>
+    <tr><td style="text-align:left">Tidak ada jawaban tertulis</td><td style="text-align:center">&minus;30 % per soal</td></tr>
+    <tr><td style="text-align:left">Kode error tapi ada usaha debug</td><td style="text-align:center">&minus;20 % per soal</td></tr>
+    <tr><td style="text-align:left">Screenshot palsu / diedit</td><td style="text-align:center">0 seluruh UTS</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>CHECKLIST SEBELUM SUBMIT</h3>
+<ul class="ck">
+  <li>NIM muncul di output setiap soal</li>
+  <li>Harga, stok, diskon sesuai tabel NIM saya</li>
+  <li>Nama class dan jenis sesuai tabel NIM saya</li>
+  <li>Screenshot full window</li>
+  <li>Pertanyaan tertulis sudah dijawab (Soal 2, 3, 4, 5)</li>
+  <li>File PDF dengan nama: <code>UTS_OOP_[NIM]_[NAMA].pdf</code></li>
+</ul>
+
+<hr>
+
+<p class="footer">Selamat mengerjakan. &mdash; Wahyu Amaldi, M.Kom</p>
+
+</body>
+</html>
