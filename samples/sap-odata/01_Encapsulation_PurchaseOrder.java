@@ -26,7 +26,7 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class PurchaseOrder {
+class PurchaseOrder {
 
     // ═══════════════════════════════════════════
     // 🔒 PRIVATE: Data tersembunyi dari luar

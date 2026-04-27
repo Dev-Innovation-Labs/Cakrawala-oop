@@ -373,7 +373,7 @@ class POGoodsReceiptProcessor extends SAPODataDocument implements ODataProcessor
 //  MAIN: Demo Polymorphism
 // ═══════════════════════════════════════════════════════════
 
-public class ODataProcessorDemo {
+class ODataProcessorDemo {
 
     /**
      * Method yang menerima ODataProcessor (interface type).

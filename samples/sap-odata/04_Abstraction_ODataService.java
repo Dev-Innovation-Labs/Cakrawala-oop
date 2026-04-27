@@ -333,7 +333,7 @@ class PurchaseOrderService extends ODataService
 //  MAIN: Demo Abstraction
 // ═══════════════════════════════════════════════════════════
 
-public class ODataServiceDemo {
+class ODataServiceDemo {
 
     /**
      * Method yang hanya tahu interface, bukan implementasi.

@@ -295,7 +295,7 @@ class SAPPurchaseRequisition extends SAPDocument {
 //  MAIN: Demo Inheritance
 // ═══════════════════════════════════════════════════════════
 
-public class SAPDocumentDemo {
+class SAPDocumentDemo {
 
     public static void main(String[] args) {
         System.out.println("═══════════════════════════════════════════════════════");
