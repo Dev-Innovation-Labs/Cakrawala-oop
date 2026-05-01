@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Workflow Engine</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔄 Workflow Engine</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Beranda</a></li>
+                <li><a href="/dashboard" class="active">Dashboard</a></li>
+                <li><a href="/create">Ajukan Cuti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="dashboard">
+            <div class="header">
+                <h2>📊 Dashboard Pengajuan Cuti</h2>
+                <button class="btn btn-primary" onclick="loadRequests()">🔄 Refresh</button>
+            </div>
+
+            <div id="loading" class="loading">Loading...</div>
+
+            <div id="requestsList" style="display: none;">
+                <div class="stats">
+                    <div class="stat-card">
+                        <h4>Total Pengajuan</h4>
+                        <p id="totalCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Diajukan</h4>
+                        <p id="submittedCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Disetujui</h4>
+                        <p id="approvedCount" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Ditolak</h4>
+                        <p id="rejectedCount" class="stat-value">0</p>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Hari</th>
+                            <th>Sisa Cuti</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestsTable">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <p>Belum ada pengajuan cuti</p>
+                <a href="/create" class="btn btn-primary">Buat Pengajuan Baru</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Detail -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Detail Pengajuan</h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Universitas Cakrawala - OOP Workflow Engine</p>
+    </footer>
+
+    <script src="/js/dashboard.js"></script>
+    <script>
+        // Load requests on page load
+        document.addEventListener('DOMContentLoaded', loadRequests);
+    </script>
+</body>
+</html>

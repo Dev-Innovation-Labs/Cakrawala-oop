@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Workflow Engine - Universitas Cakrawala</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔄 Workflow Engine</h1>
+                <p>OOP Leave Management System</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Beranda</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/create">Ajukan Cuti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>OOP Workflow Engine</h2>
+                <p>Sistem Manajemen Pengajuan Cuti berbasis State Machine</p>
+                <p class="subtitle">Universitas Cakrawala - Object-Oriented Programming</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <h3>Fitur Utama</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🏗️ State Machine</h4>
+                    <p>Status dan transisi yang jelas dan terdefinisi dengan baik</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔐 Guard Pattern</h4>
+                    <p>Validasi syarat sebelum transisi status dilakukan</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Effect Pattern</h4>
+                    <p>Aksi otomatis yang dilakukan setelah transisi berhasil</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📋 Business Rules</h4>
+                    <p>Aturan bisnis yang fleksibel dan mudah diubah</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow-diagram">
+            <h3>Alur Workflow Pengajuan Cuti</h3>
+            <div class="diagram">
+                <div class="state draft">DRAFT</div>
+                <div class="arrow">→ ajukan</div>
+                <div class="state submitted">DIAJUKAN</div>
+                <div class="arrow">→ approve_atasan</div>
+                <div class="state approved-mgr">DISETUJUI ATASAN</div>
+                <div class="arrow">→ approve_hr</div>
+                <div class="state approved-hr">DISETUJUI HR ✓</div>
+            </div>
+            <p class="workflow-note">
+                <strong>Validasi Guard:</strong> Sisa cuti cukup, Tanggal valid, Pengajuan H-3
+            </p>
+        </section>
+
+        <section class="code-example">
+            <h3>Arsitektur OOP</h3>
+            <div class="code-section">
+                <pre><code>interface Guard {
+    boolean boleh(LeaveRequest req);
+}
+
+interface TransitionEffect {
+    void execute(LeaveRequest req);
+}
+
+class LeaveWorkflowEngine {
+    void jalankan(LeaveRequest req, String transisi)
+}</code></pre>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h3>Mulai Sekarang</h3>
+            <div class="cta-buttons">
+                <a href="/dashboard" class="btn btn-primary">Lihat Dashboard</a>
+                <a href="/create" class="btn btn-secondary">Ajukan Cuti Baru</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Universitas Cakrawala - Object-Oriented Programming</p>
+            <p>Wahyu Amaldi, M.Kom</p>
+        </div>
+    </footer>
+</body>
+</html>

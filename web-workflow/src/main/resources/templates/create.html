@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajukan Cuti - Workflow Engine</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔄 Workflow Engine</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Beranda</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/create" class="active">Ajukan Cuti</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="form-section">
+            <div class="form-header">
+                <h2>📝 Ajukan Pengajuan Cuti Baru</h2>
+                <p>Isi formulir di bawah untuk membuat pengajuan cuti baru</p>
+            </div>
+
+            <form id="leaveForm" class="form">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap *</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="user@example.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mulai">Tanggal Mulai *</label>
+                        <input type="date" id="mulai" name="mulai" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="selesai">Tanggal Selesai *</label>
+                        <input type="date" id="selesai" name="selesai" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sisaCuti">Sisa Cuti (Hari) *</label>
+                    <input type="number" id="sisaCuti" name="sisaCuti" required min="0" placeholder="Jumlah hari cuti tersisa">
+                </div>
+
+                <div class="form-info">
+                    <p><strong>Informasi:</strong></p>
+                    <ul>
+                        <li>✓ Pengajuan minimal H-3 (3 hari sebelumnya)</li>
+                        <li>✓ Sisa cuti harus cukup untuk jumlah hari yang diajukan</li>
+                        <li>✓ Tanggal selesai harus sama atau setelah tanggal mulai</li>
+                    </ul>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Ajukan Pengajuan</button>
+                    <button type="reset" class="btn btn-secondary">Bersihkan Form</button>
+                </div>
+            </form>
+
+            <div id="successMessage" class="success-message" style="display: none;">
+                <h4>✓ Pengajuan Berhasil Dibuat</h4>
+                <p>ID Pengajuan: <strong id="requestId"></strong></p>
+                <p>Status: <strong>DRAFT</strong></p>
+                <p id="nextSteps"></p>
+                <button class="btn btn-primary" onclick="goToDashboard()">Lihat di Dashboard</button>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <h4>❌ Gagal Membuat Pengajuan</h4>
+                <p id="errorText"></p>
+            </div>
+        </section>
+
+        <section class="workflow-info">
+            <h3>Status Awal: DRAFT</h3>
+            <p>Pengajuan cuti dimulai dengan status DRAFT. Dari status ini, Anda dapat:</p>
+            <ul>
+                <li><strong>ajukan:</strong> Mengirim pengajuan ke atasan (jika semua guard terpenuhi)</li>
+                <li><strong>batalkan:</strong> Membatalkan pengajuan sebelum dikirim</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Universitas Cakrawala - OOP Workflow Engine</p>
+    </footer>
+
+    <script src="/js/create.js"></script>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - Workflow Engine</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔄 Workflow Engine</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Beranda</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/create">Ajukan Cuti</a></li>
+                <li><a href="/docs/api" class="active">API Docs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>📚 REST API Documentation</h2>
+            <p>Dokumentasi lengkap untuk REST API Workflow Engine</p>
+        </section>
+
+        <section>
+            <h3>1️⃣ Health Check</h3>
+            <div class="code-section">
+                <pre><code>GET /api/leave/health
+
+Response (200 OK):
+{
+  "status": "ok",
+  "message": "Workflow Engine Running"
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>2️⃣ Daftar Semua Pengajuan</h3>
+            <div class="code-section">
+                <pre><code>GET /api/leave/list
+
+Response (200 OK):
+[
+  {
+    "id": "uuid-string",
+    "nama": "Andi Wijaya",
+    "email": "andi@example.com",
+    "mulai": "2026-05-10",
+    "selesai": "2026-05-15",
+    "status": "DRAFT",
+    "statusLabel": "Draf",
+    "statusColor": "#gray",
+    "sisaCuti": 12,
+    "jumlahHari": 6,
+    "alasanTolak": null,
+    "dibuat": "2026-05-01"
+  }
+]</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>3️⃣ Dapatkan Detail Pengajuan</h3>
+            <div class="code-section">
+                <pre><code>GET /api/leave/{id}
+
+Response (200 OK):
+{
+  "id": "uuid-string",
+  "nama": "Andi Wijaya",
+  "email": "andi@example.com",
+  "mulai": "2026-05-10",
+  "selesai": "2026-05-15",
+  "status": "DRAFT",
+  "statusLabel": "Draf",
+  "sisaCuti": 12,
+  "jumlahHari": 6,
+  "alasanTolak": null,
+  "dibuat": "2026-05-01"
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>4️⃣ Buat Pengajuan Cuti Baru</h3>
+            <div class="code-section">
+                <pre><code>POST /api/leave/create
+
+Request Body (JSON):
+{
+  "nama": "Andi Wijaya",
+  "email": "andi@example.com",
+  "mulai": "2026-05-10",
+  "selesai": "2026-05-15",
+  "sisaCuti": 12
+}
+
+Response (201 Created):
+{
+  "id": "a1b2c3d4-e5f6-4g7h-i8j9-k0l1m2n3o4p5",
+  "nama": "Andi Wijaya",
+  "email": "andi@example.com",
+  "mulai": "2026-05-10",
+  "selesai": "2026-05-15",
+  "status": "DRAFT",
+  "statusLabel": "Draf",
+  "statusColor": "#gray",
+  "sisaCuti": 12,
+  "jumlahHari": 6,
+  "alasanTolak": null,
+  "dibuat": "2026-05-01"
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>5️⃣ Jalankan Transisi Workflow</h3>
+            <div class="code-section">
+                <pre><code>POST /api/leave/{id}/transisi
+
+Request Body (JSON):
+{
+  "transisi": "ajukan",
+  "alasanTolak": null  // Optional, hanya untuk transisi "tolak"
+}
+
+Transisi Tersedia:
+- "ajukan"        : DRAFT → DIAJUKAN
+- "approve_atasan": DIAJUKAN → DISETUJUI_ATASAN
+- "approve_hr"    : DISETUJUI_ATASAN → DISETUJUI_HR
+- "tolak"         : DIAJUKAN → DITOLAK (set alasanTolak)
+- "batalkan"      : DRAFT → DIBATALKAN
+
+Response (200 OK):
+{
+  "sukses": true,
+  "pesan": "DRAFT → Diajukan",
+  "data": {
+    "id": "a1b2c3d4-e5f6-4g7h-i8j9-k0l1m2n3o4p5",
+    "nama": "Andi Wijaya",
+    "status": "DIAJUKAN",
+    "statusLabel": "Diajukan",
+    "sisaCuti": 12,
+    ...
+  }
+}
+
+Response (400 Bad Request):
+{
+  "sukses": false,
+  "pesan": "Guard gagal: Sisa cuti tidak mencukupi"
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>6️⃣ Dapatkan Daftar Status</h3>
+            <div class="code-section">
+                <pre><code>GET /api/leave/status/list
+
+Response (200 OK):
+[
+  {
+    "value": "DRAFT",
+    "label": "Draf",
+    "color": "#gray"
+  },
+  {
+    "value": "DIAJUKAN",
+    "label": "Diajukan",
+    "color": "#blue"
+  },
+  {
+    "value": "DISETUJUI_ATASAN",
+    "label": "Disetujui Atasan",
+    "color": "#cyan"
+  },
+  {
+    "value": "DISETUJUI_HR",
+    "label": "Disetujui HR",
+    "color": "#green"
+  },
+  {
+    "value": "DITOLAK",
+    "label": "Ditolak",
+    "color": "#red"
+  },
+  {
+    "value": "DIBATALKAN",
+    "label": "Dibatalkan",
+    "color": "#gray"
+  }
+]</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>📋 Contoh Lengkap dengan cURL</h3>
+            <div class="code-section">
+                <pre><code># 1. Buat pengajuan baru
+curl -X POST http://localhost:8080/api/leave/create \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nama": "Andi Wijaya",
+    "email": "andi@example.com",
+    "mulai": "2026-05-10",
+    "selesai": "2026-05-15",
+    "sisaCuti": 12
+  }'
+
+# Response akan berisi ID pengajuan, misal: a1b2c3d4-...
+
+# 2. Ajukan pengajuan ke atasan
+curl -X POST http://localhost:8080/api/leave/a1b2c3d4-.../transisi \
+  -H "Content-Type: application/json" \
+  -d '{"transisi": "ajukan"}'
+
+# 3. Setujui oleh atasan
+curl -X POST http://localhost:8080/api/leave/a1b2c3d4-.../transisi \
+  -H "Content-Type: application/json" \
+  -d '{"transisi": "approve_atasan"}'
+
+# 4. Setujui oleh HR (sisa cuti otomatis dikurangi)
+curl -X POST http://localhost:8080/api/leave/a1b2c3d4-.../transisi \
+  -H "Content-Type: application/json" \
+  -d '{"transisi": "approve_hr"}'
+
+# 5. Lihat detail final
+curl http://localhost:8080/api/leave/a1b2c3d4-...</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>⚠️ Error Handling</h3>
+            <div class="code-section">
+                <pre><code>404 Not Found:
+{
+  "error": "Request tidak ditemukan"
+}
+
+400 Bad Request (Guard gagal):
+{
+  "sukses": false,
+  "pesan": "Guard gagal: Pengajuan cuti harus minimal H-3 (3 hari sebelumnya)"
+}
+
+400 Bad Request (Transisi tidak valid):
+{
+  "sukses": false,
+  "pesan": "Transisi 'invalid' tidak valid dari status DRAFT"
+}
+
+400 Bad Request (Data tidak valid):
+{
+  "error": "For input string: \"abc\""
+}</code></pre>
+            </div>
+        </section>
+
+        <section>
+            <h3>🔍 Status Codes</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Arti</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>200</td>
+                        <td>OK</td>
+                        <td>Request berhasil</td>
+                    </tr>
+                    <tr>
+                        <td>201</td>
+                        <td>Created</td>
+                        <td>Resource baru berhasil dibuat</td>
+                    </tr>
+                    <tr>
+                        <td>400</td>
+                        <td>Bad Request</td>
+                        <td>Data tidak valid atau guard gagal</td>
+                    </tr>
+                    <tr>
+                        <td>404</td>
+                        <td>Not Found</td>
+                        <td>Resource tidak ditemukan</td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td>Internal Server Error</td>
+                        <td>Error di server</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Universitas Cakrawala - OOP Workflow Engine</p>
+    </footer>
+</body>
+</html>

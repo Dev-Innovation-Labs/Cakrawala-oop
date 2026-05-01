@@ -7,7 +7,7 @@
 3. Hanya mahasiswa yang **telah menyerahkan UTS** yang diperbolehkan mengikuti UAS.
 4. Mahasiswa yang belum menyerahkan UTS **tidak berhak** mengikuti UAS.
 5. Proyek harus berupa aplikasi **berbasis web**, dengan pilihan teknologi **Java** atau **Python**.
-6. Proyek UAS wajib mengintegrasikan minimal konsep dari **Bab 5 (Design Patterns)** hingga **Bab 10 (Modular Monolith)**.
+6. Proyek UAS menggunakan method OOP Workflow Engine
 
 ---
 
