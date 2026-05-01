@@ -1,0 +1,1 @@
+cd /Users/wahyuamaldi/develop/Github/Cakrawala-OOP/samples/design-patterns && export PATH="/usr/local/opt/openjdk@11/bin:$PATH" && javac DiscountStrategy.java && java DiscountStrategy

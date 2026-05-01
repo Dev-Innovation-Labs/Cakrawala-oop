@@ -813,8 +813,8 @@ class ODataPostDemo {
         System.out.println("▶ [1] Setup Koneksi SAP OData:\n");
         ODataConnection connection = new ODataConnection(
             "https://sap.ilmuprogram.com",
-            "CAKRAWA.OOP4",
-            "Cakrawala134265##",
+            "wahyu.amaldi",
+            "Pas671_ok12345",
             "777"
         );
         System.out.println("   ✅ Koneksi disiapkan ke: https://sap.ilmuprogram.com (client 777)\n");
@@ -837,15 +837,15 @@ class ODataPostDemo {
         // ═══════════════════════════════════════════
         System.out.println("   Menambahkan items...\n");
 
-        POItem item1 = new POItem("00010", "PEMBELIAN LAPTOP - NIM",
+        POItem item1 = new POItem("00010", "PEMBELIAN LAPTOP",
             "YBFA08", "1710", 10, 302.00, "PC", "USD");
         payload.addItem(item1);
 
-        POItem item2 = new POItem("00020", "PEMBELIAN MONITOR - NIM",
+        POItem item2 = new POItem("00020", "PEMBELIAN MONITOR",
             "YBFA08", "1710", 10, 150.00, "PC", "USD");
         payload.addItem(item2);
 
-        POItem item3 = new POItem("00030", "PEMBELIAN KEYBOARD - NIM",
+        POItem item3 = new POItem("00030", "PEMBELIAN KEYBOARD",
             "YBFA08", "1710", 20, 25.00, "PC", "USD");
         payload.addItem(item3);
 
